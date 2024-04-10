@@ -55,11 +55,11 @@
                                 <input type="number" name="telefone" class="form-control" id="telefone" value="{{telefone}}">
                             </div>
                             <div class="mb-3 text-start">
-                                <label class="form-label">Origem:</label>
-                                <select name="origem" class="form-select" aria-label="Default select example">
-                                    <option value="celular">Celular</option>
-                                    <option value="whatsapp">Whatsapp</option>
-                                    <option value="telefone_fixo">Telefone Fixo</option>
+                                <label class="form-label">Origem: {{origem}}</label>
+                                <select name="origem" class="form-select" value="{{origem}}">
+                                  <option value="celular" {{#if origem '==' 'celular'}}selected{{/if}}>Celular</option>
+                                  <option value="whatsapp" {{#if origem '==' 'whatsapp'}}selected{{/if}}>Whatsapp</option>
+                                  <option value="telefone_fixo" {{#if origem '==' 'telefone_fixo'}}selected{{/if}}>Telefone Fixo</option>
                                 </select>
                             </div>
                             <div class="mb-3 text-start">
@@ -83,3 +83,10 @@
         </div>
     </div>
 </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function() {
+  $('select[name="origem"]').val('{{origem}}');
+});
+  </script>
